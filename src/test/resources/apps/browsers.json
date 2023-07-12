@@ -1,0 +1,14 @@
+{
+  "android": {
+    "default": "9.0",
+    "versions": {
+      "9.0": {
+        "image": "selenoid/android_9.0",
+        "port": "4444",
+        "path": "/wd/hub",
+        "tmpfs": {"/data/local/tmp":"size=1024m"},
+        "env": ["LANG=en_US.UTF-8", "LANGUAGE=en_US:en", "LC_ALL=en_US.UTF-8"]
+      }
+    }
+  }
+}
