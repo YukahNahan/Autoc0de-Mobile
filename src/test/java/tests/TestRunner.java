@@ -13,7 +13,7 @@ import org.testng.annotations.*;
         },
         features = {"src/test/resources/features"},
         glue = {"com.autoc0de.steps","com.autoc0de.hooks"},
-        tags = "@ExampleTag"
+        tags = "@regresion"
 )
 @Test
 public class TestRunner extends AbstractTestNGCucumberTests {

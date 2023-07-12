@@ -2,6 +2,7 @@ package tests;
 
 import com.autoc0de.utility.Utils;
 import com.autoc0de.hooks.Hook;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
@@ -111,6 +112,13 @@ public class MasterPage extends Hook {
         WebElement element = this.auto_getWebElement(locator);
         return this.auto_getInputValue(element);
     }
+
+    public static void clickCoordinates(){
+        (new TouchAction((AppiumDriver)getDriver())).tap(PointOption.point(300, 706)).perform();
+    }
+
+
+
 
     public String auto_getInputValue(WebElement element) {
         return element.getAttribute("value");
