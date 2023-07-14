@@ -1,7 +1,6 @@
 package com.autoc0de.constantes;
 
-
-import com.autoc0de.annotations.Target;
+import com.autoc0de.annotations.*;
 
 public class GenericPageConstants {
 

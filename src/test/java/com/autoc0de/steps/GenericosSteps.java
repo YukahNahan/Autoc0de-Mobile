@@ -1,17 +1,11 @@
 package com.autoc0de.steps;
-
-
+import com.autoc0de.generic.*;
 import com.autoc0de.annotations.MultiReflection;
 import com.autoc0de.generic.Assertions;
-import com.autoc0de.generic.GenService;
-import com.autoc0de.utils.Actions;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import tests.MasterPage;
-
-import static com.autoc0de.utils.Actions.actionFor;
 
 
 

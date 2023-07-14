@@ -55,7 +55,7 @@ public class LoginPage extends MasterPage {
     public void completarCamposLogin(String user, String pass){
         auto_setTapElement(By.xpath(PASS_INPUT_ACCESIBILITY_XPATH));
         auto_setTextToInput(By.xpath(PASS_INPUT_ACCESIBILITY_XPATH), pass);
-        MasterPage.clickCoordinates();
+        MasterPage.tapInputUserName();
         auto_setTextToInput(By.xpath(USER_INPUT_ACCESIBILITY_XPATH), user);
     }
 

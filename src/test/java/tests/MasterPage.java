@@ -113,8 +113,47 @@ public class MasterPage extends Hook {
         return this.auto_getInputValue(element);
     }
 
-    public static void clickCoordinates(){
+    public static void tapInputUserName(){
         (new TouchAction((AppiumDriver)getDriver())).tap(PointOption.point(300, 706)).perform();
+    }
+
+
+    public class Coordenadas {
+        public void main(String[] args) {
+            hacerTapEnElemento("INPUT_USERNAME");
+            hacerTapEnElemento("ELEMENTO2");
+            hacerTapEnElemento("ELEMENTO5");
+        }
+
+        public void hacerTapEnElemento(String elemento) {
+            int x = 0;
+            int y = 0;
+
+            switch (elemento) {
+                case "INPUT_USERNAME":
+                    x = 300;
+                    y = 706;
+                    break;
+                case "ELEMENTO2":
+                    x = 0;
+                    y = 0;
+                    break;
+                case "ELEMENTO5":
+                    x = 150;
+                    y = 200;
+                    break;
+                default:
+                    System.out.println("Elemento no reconocido: " + elemento);
+                    return;
+            }
+
+            clickCoordinates(elemento, x, y);
+        }
+
+        protected void clickCoordinates(String elemento, int x, int y) {
+            (new TouchAction((AppiumDriver)getDriver())).tap(PointOption.point(x, y)).perform();
+            System.out.println("Se hizo click en " + elemento + " en las coordenadas (" + x + ", " + y + ")");
+        }
     }
 
 
