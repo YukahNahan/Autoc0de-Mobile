@@ -59,6 +59,13 @@ public class LoginPage extends MasterPage {
         auto_setTextToInput(By.xpath(USER_INPUT_ACCESIBILITY_XPATH), user);
     }
 
+    public void completarLogin(){
+        auto_setTapElement(By.xpath(PASS_INPUT_ACCESIBILITY_XPATH));
+        auto_setTextToInput(By.xpath(PASS_INPUT_ACCESIBILITY_XPATH), "Underc0de");
+        MasterPage.tapInputUserName();
+        auto_setTextToInput(By.xpath(USER_INPUT_ACCESIBILITY_XPATH), "Autoc0de");
+    }
+
     public void tapIngresar(){
         auto_setTapElement(MobileBy.AccessibilityId(BUTTON_ACCESIBILITY_ID));
     }

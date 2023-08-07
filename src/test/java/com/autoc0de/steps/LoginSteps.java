@@ -17,6 +17,13 @@ public class LoginSteps {
         loginPage.validarLoginScreen();
     }
 
+    @Given("El usuario esta en la APP Underc0de")
+    public void backgroundInicioApp() {
+        loginPage.validarLoginScreen();
+        loginPage.completarLogin();
+        loginPage.tapIngresar();
+    }
+
     @When("^El usuario ingresa sus credenciales Nombre de Usuario: '(.*)' y Password '(.*)'$")
     public void ingresoCredenciales(String user, String pass) {
         loginPage.completarCamposLogin(user, pass);

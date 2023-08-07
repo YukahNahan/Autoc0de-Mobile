@@ -1,6 +1,5 @@
 package com.autoc0de.steps;
 import com.autoc0de.generic.*;
-import com.autoc0de.annotations.MultiReflection;
 import com.autoc0de.generic.Assertions;
 
 import io.cucumber.java.en.And;
@@ -22,16 +21,16 @@ public class GenericosSteps {
 //    }
 
 
-    @When("^Hace click en (.*)$")
-    public void clicks(String target) throws IllegalAccessException {
-        String lResolver = new MultiReflection.Builder()
-                .scanPackages("com.autoc0de.constantes")
-                .scanFields()
-                .withAnnotationReveal(target)
-                .build();
+//    @When("^Hace click en (.*)$")
+//    public void clicks(String target) throws IllegalAccessException {
+//        String lResolver = new MultiReflection.Builder()
+//                .scanPackages("com.autoc0de.constantes")
+//                .scanFields()
+//                .withAnnotationReveal(target)
+//                .build();
 //        auto_getWait(lResolver).click();
 //        MasterPage.auto_setTapElement(By.id(lResolver));
-    }
+//    }
 
 //    @Then( "^El usuario verifica que '(.*)' contra '(.*)'$" )
 //    public void assertBetween( String variable, String expectedResult ) {

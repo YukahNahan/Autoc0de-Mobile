@@ -1,6 +1,9 @@
 package com.autoc0de.pages;
 
 
+import io.appium.java_client.MobileBy;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import tests.MasterPage;
 
 public class MainDashboardPage extends MasterPage {
@@ -9,16 +12,78 @@ public class MainDashboardPage extends MasterPage {
 
 
     //CONSTANTES
+
+    private final String BOTON_CREDENCIAL_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View";
+
+    private final String BOTON_CREDENCIAL_TEXTO_XPATH = "//android.view.View[@content-desc=\"Credencial\"]";
+
+    private final String BOTON_BENEFICIOS_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View";
+
+    private final String BOTON_BENEFICIOS_TEXTO_XPATH = "//android.view.View[@content-desc=\"Beneficios\"]";
+
+    private final String BOTON_DUDAS_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.view.View/android.view.View";
+
+    private final String BOTON_DUDAS_TEXTO_XPATH = "//android.view.View[@content-desc=\"Dudas\"]";
+
+    private final String BOTON_COMUNIDAD_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View";
+
+    private final String BOTON_COMUNIDAD_TEXTO_XPATH = "//android.view.View[@content-desc=\"Comunidad\"]";
+
+    private final String BOTON_SALIR_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[6]/android.view.View/android.view.View";
+
+    private final String BOTON_SALIR_SI_XPATH = "//android.widget.Button[@content-desc=\"Si\"]";
+
+    private final String BOTON_SALIR_NO_XPATH = "//android.widget.Button[@content-desc=\"No\"]";
     private final String LABEL_EXAMPLE_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View";
     private final String BUTTON_EXAMPLE_ACCESIBILITY_ID = "Iniciar sesión";
     private final String BUTTON_OK_ACCESIBILITY_ID = "Ok";
+
+    private final String USER_INPUT_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]";
+    private final String PASS_INPUT_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]";
+    private final String BUTTON_ACCESIBILITY_ID = "Iniciar sesión";
     public MainDashboardPage() {
     }
 
     //FUNCIONES
-    public void serviceMethodExample(){
+
+    public void validarBotonesDashboard(){
+        Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_CREDENCIAL_TEXTO_XPATH)));
+        Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_BENEFICIOS_XPATH)));
+        Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_DUDAS_XPATH)));
+        Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_COMUNIDAD_XPATH)));
+        Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_SALIR_XPATH)));
     }
 
-    public void serviceMethodExampleVar(String var1,String var2){
+    public void tapBeneficios(){
+        auto_setTapElement(MobileBy.xpath(BOTON_BENEFICIOS_XPATH));
+    }
+
+    public void tapDudas(){
+        auto_setTapElement(MobileBy.xpath(BOTON_DUDAS_XPATH));
+    }
+
+    public void tapComunidad(){
+        auto_setTapElement(MobileBy.xpath(BOTON_COMUNIDAD_XPATH));
+    }
+
+    public void tapSalir(){
+        auto_setTapElement(MobileBy.xpath(BOTON_SALIR_XPATH));
+    }
+
+    public void validarSalidaApp(){
+        auto_setTapElement(MobileBy.xpath(BOTON_SALIR_SI_XPATH));
+        Assert.assertTrue(auto_isElementVisible(By.xpath(USER_INPUT_ACCESIBILITY_XPATH)));
+        Assert.assertTrue(auto_isElementVisible(By.xpath(PASS_INPUT_ACCESIBILITY_XPATH)));
+    }
+
+    public void serviceMethodExampleMainDash(){
+    }
+
+    public void serviceMethodExampleMainDashAnd(){
+    }
+
+    public void serviceMethodExampleMainDashThen(){
+    }
+    public void serviceMethodExampleVarMainDash(String var1,String var2){
     }
 }

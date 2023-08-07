@@ -15,9 +15,15 @@ public class CredencialPage extends MasterPage {
     }
 
     //FUNCIONES
-    public void serviceMethodExample(){
+    public void serviceMethodExampleCredencialesAnd(){
     }
 
-    public void serviceMethodExampleVar(String var1,String var2){
+    public void serviceMethodExampleCredencialesThen(){
+    }
+
+    public void serviceMethodExampleCredenciales(){
+    }
+
+    public void serviceMethodExampleVarCredenciales(String var1,String var2){
     }
 }

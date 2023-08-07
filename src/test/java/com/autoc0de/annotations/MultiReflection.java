@@ -40,25 +40,25 @@ public class MultiReflection {
             return this;
         }
 
-        public String build() throws IllegalAccessException {
-            if (descriptorKey == null && fieldName == null) {
-                throw new RuntimeException("anotacion o nombre de campo requerido");
-            }
+//        public String build() throws IllegalAccessException {
+//            if (descriptorKey == null && fieldName == null) {
+//                throw new RuntimeException("anotacion o nombre de campo requerido");
+//            }
+//
+//            return defaultResolver();
+//        }
 
-            return defaultResolver();
-        }
-
-        private String defaultResolver() throws IllegalAccessException {
-            boolean isPresent = false;
-            for (Map.Entry<Object, Object> fInfoList: fieldInfoList.entrySet()) {
-                for (FieldInfo fieldInfo: fInfoList.getValue()) {
-                    isPresent = (descriptorKey == null) ? variableResolver(fieldInfo) : annotationResolver(fieldInfo);
-                    if (isPresent) return (String) fieldInfo.loadClassAndGetField().get(fInfoList.getKey());
-                }
-            }
-
-            throw new InexistentAnnotationException(descriptorKey);
-        }
+//        private String defaultResolver() throws IllegalAccessException {
+//            boolean isPresent = false;
+//            for (Map.Entry<Object, Object> fInfoList: fieldInfoList.entrySet()) {
+//                for (FieldInfo fieldInfo: fInfoList.getValue()) {
+//                    isPresent = (descriptorKey == null) ? variableResolver(fieldInfo) : annotationResolver(fieldInfo);
+//                    if (isPresent) return (String) fieldInfo.loadClassAndGetField().get(fInfoList.getKey());
+//                }
+//            }
+//
+//            throw new InexistentAnnotationException(descriptorKey);
+//        }
 
         private boolean annotationResolver(FieldInfo fieldInfo) {
             List<AnnotationInfo> annotationStringsList = new ArrayList<>(fieldInfo.getAnnotationInfo());

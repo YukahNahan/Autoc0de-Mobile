@@ -12,24 +12,24 @@ public class CredencialSteps {
     //PAGE INSTANCE
     CredencialPage credencialPage = new CredencialPage();
 
-    @Given("...")
-    public void metodoStepBasico() {
-        credencialPage.serviceMethodExample();
+    @Given("...xxx")
+    public void metodoStepBasicoCredenciales() {
+        credencialPage.serviceMethodExampleCredenciales();
     }
 
-    @When("^  '(.*)'    '(.*)'$")
-    public void metodoStepBasicoVar(String var1, String var2) {
-        credencialPage.serviceMethodExampleVar(var1, var2);
+    @When("^'(.*)'    '(.*)'$")
+    public void metodoStepBasicoVarCredenciales(String var1, String var2) {
+        credencialPage.serviceMethodExampleVarCredenciales(var1, var2);
     }
 
 
-    @And(" ")
-    public void metodoStepBasicoAnd() {
-        credencialPage.serviceMethodExample();
+    @And("asd")
+    public void metodoStepBasicoAndCredencialesAnd() {
+        credencialPage.serviceMethodExampleCredencialesAnd();
     }
 
     @Then("...")
-    public void metodoStepBasicoThen() {
-        credencialPage.serviceMethodExample();
+    public void metodoStepBasicoThenCredencialesThen() {
+        credencialPage.serviceMethodExampleCredencialesThen();
     }
 }
