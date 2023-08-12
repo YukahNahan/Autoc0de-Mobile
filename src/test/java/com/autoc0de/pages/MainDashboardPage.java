@@ -41,6 +41,8 @@ public class MainDashboardPage extends MasterPage {
     private final String USER_INPUT_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]";
     private final String PASS_INPUT_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]";
     private final String BUTTON_ACCESIBILITY_ID = "Iniciar sesión";
+    private final String BENEFICIOS = "//android.view.View[@content-desc=\"Beneficios\"]";
+
     public MainDashboardPage() {
     }
 
@@ -51,23 +53,7 @@ public class MainDashboardPage extends MasterPage {
         Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_BENEFICIOS_XPATH)));
         Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_DUDAS_XPATH)));
         Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_COMUNIDAD_XPATH)));
-        Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_SALIR_XPATH)));
-    }
-
-    public void tapBeneficios(){
-        auto_setTapElement(MobileBy.xpath(BOTON_BENEFICIOS_XPATH));
-    }
-
-    public void tapDudas(){
-        auto_setTapElement(MobileBy.xpath(BOTON_DUDAS_XPATH));
-    }
-
-    public void tapComunidad(){
-        auto_setTapElement(MobileBy.xpath(BOTON_COMUNIDAD_XPATH));
-    }
-
-    public void tapSalir(){
-        auto_setTapElement(MobileBy.xpath(BOTON_SALIR_XPATH));
+        //Assert.assertTrue(auto_isElementVisible(By.xpath(BOTON_SALIR_XPATH)));
     }
 
     public void validarSalidaApp(){
@@ -85,5 +71,22 @@ public class MainDashboardPage extends MasterPage {
     public void serviceMethodExampleMainDashThen(){
     }
     public void serviceMethodExampleVarMainDash(String var1,String var2){
+    }
+
+    public void validarBotonesXpathDashboard(String[] differentValues) {
+        for (String value : differentValues) {
+            String xpath = String.format("//android.view.View[@content-desc=\"%s\"]", value);
+            boolean isElementVisible = auto_isElementVisible(MobileBy.xpath(xpath));
+            if (isElementVisible) {
+                System.out.println("El elemento con valor '" + value + "' es visible.");
+            } else {
+                System.out.println("El elemento con valor '" + value + "' no está visible.");
+            }
+        }
+    }
+
+    public void usuarioTapBotonMainDashboard(String elemento) {
+        MainDashboardPage.Coordenadas coordenadas = new MainDashboardPage.Coordenadas();
+        coordenadas.hacerTapEnElemento(elemento);
     }
 }

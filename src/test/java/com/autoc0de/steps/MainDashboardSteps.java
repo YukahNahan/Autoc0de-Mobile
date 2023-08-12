@@ -19,26 +19,6 @@ public class MainDashboardSteps {
         mainDashboardPage.validarBotonesDashboard();
     }
 
-    @And("Hace tap en el boton Beneficios")
-    public void usuarioTapBotonBeneficiosMainDashboard() {
-        mainDashboardPage.tapBeneficios();
-    }
-
-    @And("Hace tap en el boton Dudas")
-    public void usuarioTapBotonDudasMainDashboard() {
-        mainDashboardPage.tapDudas();
-    }
-
-    @And("Hace tap en el boton Comunidad")
-    public void usuarioTapBotonComunidadMainDashboard() {
-        mainDashboardPage.tapComunidad();
-    }
-
-    @And("Hace tap en el boton Salir")
-    public void usuarioTapBotonSalirMainDashboard() {
-        mainDashboardPage.tapSalir();
-    }
-
     @And("El usuario valida salida de la app correctamente")
     public void usuarioVerificaSalidaApp() {
         mainDashboardPage.validarSalidaApp();
@@ -63,5 +43,11 @@ public class MainDashboardSteps {
     @Then("....")
     public void metodoStepBasicoThenMainDashThen() {
         mainDashboardPage.serviceMethodExampleMainDashThen();
+    }
+
+    @And("^Hace tap en el boton '(.*)'")
+    public void usuarioTapBotonComunidadMainDashboard(String elemento) {
+        //mainDashboardPage.validarBotonesXpathDashboard(differentValues);
+        mainDashboardPage.usuarioTapBotonMainDashboard(elemento);
     }
 }

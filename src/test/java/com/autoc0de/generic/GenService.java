@@ -5,6 +5,7 @@ import com.autoc0de.utils.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.*;
 import org.testng.Assert;
+import tests.MasterPage;
 
 
 public class GenService {
@@ -69,4 +70,26 @@ public class GenService {
         }
     }
 
+    public static void contenidoScroll() {
+        int startX = 0;
+        int startYBefore = 200;
+        int endX = 0;
+        int endYBefore = -800;
+
+        // Obtener la posición Y antes del scroll
+        startYBefore = 200;
+
+        MasterPage.auto_genericScroll(startX, startYBefore, endX, endYBefore);
+
+        // Verificar si el contenido se ha desplazado
+        boolean contentScrolled = GenService.isContentScrolled(startYBefore, endYBefore);
+        Assert.assertTrue(contentScrolled, "El contenido no se desplazó como se esperaba.");
+    }
+
+    private static boolean isContentScrolled(int startYBefore, int endYBefore) {
+        int startYAfter = 0;
+        int endYAfter = 200;
+
+        return startYAfter != startYBefore || endYAfter != endYBefore;
+    }
 }

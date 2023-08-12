@@ -53,7 +53,7 @@ public class MasterPage extends Hook {
         return (List) this.auto_getWait().until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 
-    public void auto_genericScroll(int startX, int startY, int endX, int endY){
+    public static void auto_genericScroll(int startX, int startY, int endX, int endY){
         TouchAction ts = new TouchAction((PerformsTouchActions) getDriver());
         ts.longPress(PointOption.point(startX, startY)).moveTo(PointOption.point(endX, endY)).release().perform();
     }
@@ -121,8 +121,13 @@ public class MasterPage extends Hook {
     public class Coordenadas {
         public void main(String[] args) {
             hacerTapEnElemento("INPUT_USERNAME");
-            hacerTapEnElemento("ELEMENTO2");
-            hacerTapEnElemento("ELEMENTO5");
+            hacerTapEnElemento("BENEFICIOS");
+            hacerTapEnElemento("DUDAS");
+            hacerTapEnElemento("COMUNIDAD");
+            hacerTapEnElemento("CREDENCIAL");
+            hacerTapEnElemento("AGREGAR_POST");
+            hacerTapEnElemento("VOLVER");
+            hacerTapEnElemento("ELEMENTOX");
         }
 
         public void hacerTapEnElemento(String elemento) {
@@ -134,13 +139,37 @@ public class MasterPage extends Hook {
                     x = 300;
                     y = 706;
                     break;
-                case "ELEMENTO2":
-                    x = 0;
-                    y = 0;
+                case "BENEFICIOS":
+                    x = 240;
+                    y = 917;
                     break;
-                case "ELEMENTO5":
-                    x = 150;
-                    y = 200;
+                case "DUDAS":
+                    x = 325;
+                    y = 917;
+                    break;
+                case "COMUNIDAD":
+                    x = 399;
+                    y = 917;
+                    break;
+                case "SALIR":
+                    x = 481;
+                    y = 917;
+                    break;
+                case "CREDENCIAL":
+                    x = 40;
+                    y = 917;
+                    break;
+                case "AGREGAR_POST":
+                    x = 471;
+                    y = 806;
+                    break;
+                case "VOLVER":
+                    x = 28;
+                    y = 78;
+                    break;
+                case "ELEMENTOX":
+                    x = x;
+                    y = y;
                     break;
                 default:
                     System.out.println("Elemento no reconocido: " + elemento);
@@ -152,7 +181,7 @@ public class MasterPage extends Hook {
 
         protected void clickCoordinates(String elemento, int x, int y) {
             (new TouchAction((AppiumDriver)getDriver())).tap(PointOption.point(x, y)).perform();
-            System.out.println("Se hizo click en " + elemento + " en las coordenadas (" + x + ", " + y + ")");
+            System.out.println("Información adicional: Se hizo tap correctamente en " + elemento + " en las coordenadas (" + x + ", " + y + ")");
         }
     }
 

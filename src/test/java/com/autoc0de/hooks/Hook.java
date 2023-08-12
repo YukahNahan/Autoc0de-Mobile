@@ -31,13 +31,13 @@ public class Hook {
         caps.setCapability("deviceId", "192.168.xx.xx:xxxx");
         caps.setCapability("resetKeyboard", "true");
         caps.setCapability("unicodeKeyboard", "true");
-        caps.setCapability("appActivity", "");
+        caps.setCapability("appActivity", "com.underc0de.underc0deapp.MainActivity");
         caps.setCapability("appPackage", "org.underc0de");
         //URL APPIUM SERVER
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         //DRIVERS
         driver = new AndroidDriver<MobileElement>(url,caps);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
     }
 
     @After

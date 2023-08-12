@@ -7,7 +7,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-
 public class GenericosSteps {
 
 //    @Then( "^El usuario debe visualizar '(.*)'(?:.*)$" )
@@ -84,6 +83,11 @@ public class GenericosSteps {
     @And( "^Se cierra el '(.*)'(?:.*)$" )
     public void visualizeNot( String variable ) {
 //        GenService.notVisualize( variable );
+    }
+
+    @And( "El usuario hace scroll y valida desplazamiento" )
+    public void scrollContenido() {
+        GenService.contenidoScroll();
     }
 
 

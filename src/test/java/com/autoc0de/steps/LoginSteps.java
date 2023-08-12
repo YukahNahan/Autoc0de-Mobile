@@ -12,7 +12,7 @@ public class LoginSteps {
     //PAGE INSTANCE
     LoginPage loginPage = new LoginPage();
 
-    @Given("El usuario está en la pantalla de inicio de sesión de la aplicación Underc0de")
+    @Given("El usuario esta en la pantalla de inicio de sesion de la aplicacion Underc0de")
     public void pantallaInicioApp() {
         loginPage.validarLoginScreen();
     }
@@ -35,7 +35,7 @@ public class LoginSteps {
         loginPage.tapIngresar();
     }
 
-    @Then("El usuario valida la pantalla Bienvenido a Autoc0de")
+    @Then("El usuario valida resultado de login en App Underc0de")
     public void theUserVerifiesThatHeWasOnTheWelcomeToAutocDeScreen() {
         loginPage.validarLoginCorrecto();
     }

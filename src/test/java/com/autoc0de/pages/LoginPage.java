@@ -19,7 +19,8 @@ public class LoginPage extends MasterPage {
     private final String PASS_INPUT_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]";
     private final String BUTTON_ACCESIBILITY_ID = "Iniciar sesión";
     private final String BUTTONOK_ACCESIBILITY_ID = "Ok";
-    private final String CONTENT_XPATH = "//android.view.View[@content-desc=\"NIVEL 1\"]";
+    private final String CONTENT_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View";
+    private final String CONTENT_NIVEL_XPATH = "//android.view.View[@content-desc=\"NIVEL 1\"]";
     private final String RESULT_LABEL_ACCESIBILITY1_ID = "Error al ingresar No has ingresado un nombre de usuario ni contraseña. Por favor no seas tan...";
     private final String RESULT_LABEL_ACCESIBILITY2_ID = "Error al ingresar No has ingresado una contraseña. Por favor que no vuelva a pasar...";
     private final String RESULT_LABEL_ACCESIBILITY3_ID = "Error al ingresar No has ingresado un nombre de usuario. Usted no entiende verdad?";
@@ -70,11 +71,56 @@ public class LoginPage extends MasterPage {
         auto_setTapElement(MobileBy.AccessibilityId(BUTTON_ACCESIBILITY_ID));
     }
 
-    public void validarLoginCorrecto(){
-        boolean isErrorVisible = auto_isElementVisible(By.xpath(RESULT_LABEL_ACCESIBILITY5_ID));
-        Assert.assertTrue(isErrorVisible ? isErrorVisible : auto_isElementVisible(By.xpath(CONTENT_XPATH)));
-//        Assert.assertTrue(auto_isElementVisible(By.xpath(CONTENT_XPATH)));
+//    public void validarLoginCorrecto() {
+//        errorLocators.entrySet().stream()
+//                .filter(entry -> auto_isElementVisible(By.xpath(entry.getKey())))
+//                .findFirst()
+//                .ifPresent(entry -> Assert.fail("Error: " + entry.getValue()));
+//
+//        if (!auto_isElementVisible(By.xpath(CONTENT_XPATH))) {
+//            Assert.fail("Error inesperado: No se encontraron elementos de validación.");
+//        }
+//    }
+
+    public void validarLoginCorrecto() {
+        boolean isLoginSuccessful = auto_isElementVisible(By.xpath(CONTENT_XPATH));
+
+        if (!isLoginSuccessful) {
+            String[] errorLocators = {
+                    RESULT_LABEL_ACCESIBILITY5_ID,
+                    RESULT_LABEL_ACCESIBILITY6_ID,
+                    RESULT_LABEL_ACCESIBILITY7_ID,
+                    RESULT_LABEL_ACCESIBILITY8_ID
+            };
+
+            for (String locator : errorLocators) {
+                if (auto_isElementVisible(By.xpath(locator))) {
+                    mostrarError(locator);
+                }
+            }
+
+            mostrarError("Error inesperado: No se encontraron elementos de validación.");
+        }
     }
 
+    private void mostrarError(String locator) {
+        String errorMessage = obtenerMensajeDeError(locator);
+        Assert.fail("Error: " + errorMessage);
+    }
+
+    private String obtenerMensajeDeError(String locator) {
+        switch (locator) {
+            case RESULT_LABEL_ACCESIBILITY5_ID:
+                return "Nombre de usuario y/o Contraseña incorrectos.";
+            case RESULT_LABEL_ACCESIBILITY6_ID:
+                return "No has ingresado una Contraseña.";
+            case RESULT_LABEL_ACCESIBILITY7_ID:
+                return "No has ingresado un Nombre de usuario.";
+            case RESULT_LABEL_ACCESIBILITY8_ID:
+                return "Es necesario ingresar un Nombre de usuario y Contraseña.";
+            default:
+                return "Mensaje de error desconocido.";
+        }
+    }
 
 }

@@ -20,7 +20,7 @@ public class RegistroAppSteps {
         registroAppPage.tapGuardarRegistro();
     }
 
-    @Then("El usuario valida la pantalla de registracion en Autoc0de App")
+    @Then("El usuario valida la pantalla de registracion en Underc0de App")
     public void theUserVerifiesThatHeWasOnTheWelcomeToAutocDeScreen() {
         registroAppPage.validarRegistro();
     }
