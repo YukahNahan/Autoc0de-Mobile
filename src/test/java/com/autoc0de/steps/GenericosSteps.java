@@ -85,9 +85,14 @@ public class GenericosSteps {
 //        GenService.notVisualize( variable );
     }
 
-    @And( "El usuario hace scroll y valida desplazamiento" )
-    public void scrollContenido() {
-        GenService.contenidoScroll();
+    @And( "El usuario hace scroll vertical y valida desplazamiento" )
+    public void scrollVerticalContenido() {
+        GenService.contenidoScrollVertical();
+    }
+
+    @And( "El usuario hace scroll horizontal y valida desplazamiento" )
+    public void scrollHorizontalContenido() {
+        GenService.contenidoScrollHorizontal();
     }
 
 

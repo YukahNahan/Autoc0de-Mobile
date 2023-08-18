@@ -1,6 +1,7 @@
 package com.autoc0de.pages;
 
 
+import com.autoc0de.generic.GenService;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -14,11 +15,26 @@ public class LoginPage extends MasterPage {
     //CONSTANTES
     private final String LABEL_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View";
     private final String OMITIR_ACCESIBILITY_XPATH = "Omitir";
+    private final String SLIDE1_ACCESIBILITY_XPATH = "¿Qué es Underc0de App?\n" +
+            "Es una aplicación \n" +
+            "que reúne a los miembros \n" +
+            "de Underc0de.";
+
+    private final String SLIDE2_ACCESIBILITY_XPATH = "¿Cuál es el objetivo?\n" +
+            "Informarte de los \n" +
+            "beneficios y descuentos \n" +
+            "que podés obtener.";
+
+    private final String SLIDE3_ACCESIBILITY_XPATH = "¿Cómo obtenés más descuentos?\n" +
+            "¡Mientras mayor sea tu \n" +
+            "actividad en el foro, mayor \n" +
+            "será el beneficio!";
     private final String LOGOLABEL_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView";
     private final String USER_INPUT_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]";
     private final String PASS_INPUT_ACCESIBILITY_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]";
     private final String BUTTON_ACCESIBILITY_ID = "Iniciar sesión";
     private final String BUTTONOK_ACCESIBILITY_ID = "Ok";
+    private final String AYUDA_ACCESIBILITY_ID = "¿Necesitas ayuda?";
     private final String CONTENT_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View";
     private final String CONTENT_NIVEL_XPATH = "//android.view.View[@content-desc=\"NIVEL 1\"]";
     private final String RESULT_LABEL_ACCESIBILITY1_ID = "Error al ingresar No has ingresado un nombre de usuario ni contraseña. Por favor no seas tan...";
@@ -47,10 +63,14 @@ public class LoginPage extends MasterPage {
     }
 
     //FUNCIONES
-    public void validarLoginScreen(){
+    public void validarOmitirSlidesLoginScreen(){
 //        Assert.assertTrue(auto_isElementVisible(By.xpath(LOGOLABEL_ACCESIBILITY_XPATH)));
         Assert.assertTrue(auto_isElementVisible(MobileBy.AccessibilityId(OMITIR_ACCESIBILITY_XPATH)));
         auto_setTapElement(MobileBy.AccessibilityId(OMITIR_ACCESIBILITY_XPATH));
+    }
+
+    public void validarBienvenidaSlidesScreen(){
+        Assert.assertTrue(auto_isElementVisible(MobileBy.AccessibilityId(OMITIR_ACCESIBILITY_XPATH)));
     }
 
     public void completarCamposLogin(String user, String pass){
@@ -69,6 +89,18 @@ public class LoginPage extends MasterPage {
 
     public void tapIngresar(){
         auto_setTapElement(MobileBy.AccessibilityId(BUTTON_ACCESIBILITY_ID));
+    }
+
+    public void tapAyuda(){
+        auto_setTapElement(MobileBy.AccessibilityId(AYUDA_ACCESIBILITY_ID));
+    }
+
+    public void contenidoScrollHorizontalSlides(){
+        Assert.assertTrue(auto_isElementVisible(MobileBy.AccessibilityId(SLIDE1_ACCESIBILITY_XPATH)));
+        GenService.contenidoScrollHorizontal();
+        Assert.assertTrue(auto_isElementVisible(MobileBy.AccessibilityId(SLIDE2_ACCESIBILITY_XPATH)));
+        GenService.contenidoScrollHorizontal();
+        Assert.assertTrue(auto_isElementVisible(MobileBy.AccessibilityId(SLIDE3_ACCESIBILITY_XPATH)));
     }
 
 //    public void validarLoginCorrecto() {

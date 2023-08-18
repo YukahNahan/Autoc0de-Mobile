@@ -11,7 +11,7 @@ Feature: Modulo Dudas App Underc0de
     #And El usuario hace tap en el boton Agregar Duda
     And Verifica formulario publicar posteo
     And Hace tap en el boton 'VOLVER'
-    Then El usuario hace scroll y valida desplazamiento
+    Then El usuario hace scroll vertical y valida desplazamiento
     #Then Verifica entradas registradas
 
 
@@ -19,4 +19,4 @@ Feature: Modulo Dudas App Underc0de
   Scenario: Se valida que los botones de las Entradas registradas se visualizan correctamente en el Modulo Dudas al scrollear en Underc0de App
     When El usuario valida botones de Main Dashboard
     And Hace tap en el boton 'DUDAS'
-    Then El usuario hace scroll y valida desplazamiento
+    Then El usuario hace scroll vertical y valida desplazamiento

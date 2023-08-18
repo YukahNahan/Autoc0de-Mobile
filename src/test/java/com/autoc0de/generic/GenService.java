@@ -70,7 +70,7 @@ public class GenService {
         }
     }
 
-    public static void contenidoScroll() {
+    public static void contenidoScrollVertical() {
         int startX = 0;
         int startYBefore = 200;
         int endX = 0;
@@ -82,14 +82,36 @@ public class GenService {
         MasterPage.auto_genericScroll(startX, startYBefore, endX, endYBefore);
 
         // Verificar si el contenido se ha desplazado
-        boolean contentScrolled = GenService.isContentScrolled(startYBefore, endYBefore);
+        boolean contentScrolled = GenService.contenidoScrolleadoVertical(startYBefore, endYBefore);
         Assert.assertTrue(contentScrolled, "El contenido no se desplazó como se esperaba.");
     }
 
-    private static boolean isContentScrolled(int startYBefore, int endYBefore) {
+    public static void contenidoScrollHorizontal() {
+        int startXBefore = 200; // Posición inicial en el eje X antes del scroll
+        int startY = 350;
+        int endXBefore = -250; // Cantidad de desplazamiento en el eje X
+
+        // Obtener la posición X antes del scroll
+        startXBefore = 200;
+
+        MasterPage.auto_genericScroll(startXBefore, startY, endXBefore, startY);
+
+        // Verificar si el contenido se ha desplazado
+        boolean contenidoScrolleado = GenService.contenidoScrolleadoHorizontal(startXBefore, endXBefore);
+        Assert.assertTrue(contenidoScrolleado, "El contenido no se desplazó como se esperaba.");
+    }
+
+    private static boolean contenidoScrolleadoVertical(int startYBefore, int endYBefore) {
         int startYAfter = 0;
         int endYAfter = 200;
 
         return startYAfter != startYBefore || endYAfter != endYBefore;
+    }
+
+    private static boolean contenidoScrolleadoHorizontal(int startYBefore, int endYBefore) {
+        int startXAfter = 0;
+        int endXAfter = -200;
+
+        return startXAfter != startYBefore || endXAfter != endYBefore;
     }
 }
