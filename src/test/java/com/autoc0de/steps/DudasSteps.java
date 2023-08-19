@@ -1,5 +1,6 @@
 package com.autoc0de.steps;
 
+import com.autoc0de.gpt3turbo.OpenAIGPTException;
 import com.autoc0de.pages.DudasPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -20,6 +21,16 @@ public class DudasSteps {
     @And("Verifica formulario publicar posteo")
     public void validarFormularioPublicar() {
         dudasPage.validarModuloPublicarDudas();
+    }
+
+    @And("Publica nueva consulta")
+    public void validarConsultaPublicada() throws OpenAIGPTException {
+        dudasPage.validarConsultaPublicada();
+    }
+
+    @And("Comenta en la consulta realizada de forma correcta")
+    public void validarRespuestaPublicada() throws OpenAIGPTException {
+        dudasPage.validarRespuestaPublicada();
     }
 
 

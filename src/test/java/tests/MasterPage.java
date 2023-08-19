@@ -127,6 +127,7 @@ public class MasterPage extends Hook {
             hacerTapEnElemento("CREDENCIAL");
             hacerTapEnElemento("AGREGAR_POST");
             hacerTapEnElemento("VOLVER");
+            hacerTapEnElemento("POST_PUBLICADO");
             hacerTapEnElemento("ELEMENTOX");
         }
 
@@ -166,6 +167,10 @@ public class MasterPage extends Hook {
                 case "VOLVER":
                     x = 28;
                     y = 78;
+                    break;
+                case "CONSULTA":
+                    x = 167;
+                    y = 200;
                     break;
                 case "ELEMENTOX":
                     x = x;

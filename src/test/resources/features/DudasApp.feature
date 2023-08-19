@@ -20,3 +20,19 @@ Feature: Modulo Dudas App Underc0de
     When El usuario valida botones de Main Dashboard
     And Hace tap en el boton 'DUDAS'
     Then El usuario hace scroll vertical y valida desplazamiento
+
+  @entradasScroll @publicar
+  Scenario: Se valida agregar consulta en el Modulo Dudas en Underc0de App
+    When El usuario valida botones de Main Dashboard
+    And Hace tap en el boton 'DUDAS'
+    And Hace tap en el boton 'AGREGAR_POST'
+    And Verifica formulario publicar posteo
+    When Publica nueva consulta
+    And El usuario valida botones de Main Dashboard
+    And Hace tap en el boton 'DUDAS'
+    And El usuario hace scroll horizontal y valida desplazamiento
+    And Hace tap en el boton 'CONSULTA'
+    When Comenta en la consulta realizada de forma correcta
+    And Hace tap en el boton 'VOLVER'
+    And Hace tap en el boton 'DUDAS'
+    Then El usuario hace scroll vertical y valida desplazamiento

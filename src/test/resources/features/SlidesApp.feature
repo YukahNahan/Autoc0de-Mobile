@@ -6,6 +6,7 @@ Feature: Slides Bienvenida App Underc0de
     Given El usuario esta en la pantalla de Bienvenida de la aplicacion Underc0de
     When El usuario hace scroll horizontal y valida desplazamiento de Slides
     And El usuario esta en la pantalla de inicio de sesion de la aplicacion Underc0de
+    And El usuario hace scroll vertical y valida desplazamiento
     When El usuario hace tap en el boton Necesitas Ayuda?
     And El usuario hace scroll horizontal y valida desplazamiento
     And El usuario hace scroll horizontal y valida desplazamiento
